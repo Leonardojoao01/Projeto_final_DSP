@@ -1,0 +1,7 @@
+s = imread('mario.jpg');
+s = s(:,:,1);
+
+
+for i=1:size(s,1)
+    [re]
+end;
