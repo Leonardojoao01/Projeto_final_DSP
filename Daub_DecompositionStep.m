@@ -1,4 +1,4 @@
-function [ result ] = Daub_DecompositionStep( vet, n )
+function [ vet ] = Daub_DecompositionStep( vet, n )
     i=1;
     j=1;
     result = zeros(1,length(n));
@@ -29,6 +29,8 @@ function [ result ] = Daub_DecompositionStep( vet, n )
     
     result(i) = (a + d + 3*(b + c) + sqrt(3)*(t1 + t2)) / (4*sqrt(2));
     result(i+half) = (a - d + 3*(c - b) + sqrt(3)*(t2 - t1)) / (4*sqrt(2));
+    
+    vet(1:n) = result(1:n);
     
 end
 
