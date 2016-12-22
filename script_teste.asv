@@ -5,13 +5,13 @@
 n = 16;
 s = zeros(n,1);
 
-%for i=1:size(s,1)
+for i=1:size(s,1)
     %juca = double(s);
     %juca(1) = 9.0;
     %juca(2) = 7.0;
     %juca(3) = 15.0;
     %juca(4) = 2.0;
     
-    juca = [7.0  6.0  9.0  3.0  1.0  15.0  10.0  12.0  9.0  13.0  10.0  11.0  2.0  11.0  3.0  6.0];
-    result = Daub_CompositionStep(juca, n);
+    juca = [7  6  9  3  1  15  10  12  9  13  10  11  2  11  3  6];
+    result(1) = Daub_CompositionStep(juca, n);
 %end;
