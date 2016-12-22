@@ -1,14 +1,15 @@
-s = imread('mario.jpg');
+%img = imread('mario.jpg');
 %s = im2double('mario.jpg');
 %s = double(s);
-s = s(:,:,1);
-
+%s = s(1:1:4);
+n = 4;
+s = zeros(n,1);
 
 for i=1:size(s,1)
-    for j=1:size(s,2)
-        juca(j) = s(i,j);
-    end;
-    jin = 20.0;
-    juca = double(juca);
-    [result] = Daub_CompositionStep(juca, jin);
+    juca = double(s);
+    juca(1) = 9.0;
+    juca(2) = 7.0;
+    juca(3) = 15.0;
+    juca(4) = 2.0;
+    result = Daub_CompositionStep(juca, n);
 end;
