@@ -1,4 +1,6 @@
 function [ result ] = Daub_CompositionStep(v,n)
+%function [ vet ] = Daub_CompositionStep(v,n)
+
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -51,5 +53,6 @@ function [ result ] = Daub_CompositionStep(v,n)
         j = j+1;
 
     end;
+    %vet(1:n) = result(1:n);
 end
 
