@@ -28,19 +28,9 @@ function [ mergeResult ] = compression( ~ )
  
     [map,mergeResult] = sort(map, mergeResult, 0, N*N-1);
  
-    %///////////////////////// Achando Threshold //////////////////////////////
- 
-    threshold = 0;
- 
-    %// TODO
- 
     %///////////////////////// Compressão /////////////////////////////////////
  
-    for i = 0:1:N*N
-        if (map(i).value < threshold)
-            map(i).value = 0;
-        end
-    end
+    compress(map, N*N, COMPRESS_RATIO);
  
     %///////////////////////// Restaurando Matriz /////////////////////////////
  
