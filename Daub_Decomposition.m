@@ -1,10 +1,10 @@
 function [ vet ] = Daub_Decomposition( vet )
 
-    s = size(vet,2);
+    s = 4;%size(vet,1);
     
-    while s >= 4
+    while s <= size(vet,1)
         vet = Daub_DecompositionStep(vet, s);
-        s = s/2;
+        s = s*2;
     end
 end
 
