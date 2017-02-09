@@ -1,4 +1,4 @@
-juca = [7	6	9	3	1	15	10	12	9	13	10	11	2	11	3	6	
+matriz = [7	6	9	3	1	15	10	12	9	13	10	11	2	11	3	6	
         12	2	4	8	11	8	7	13	6	10	14	3	3	15	9	10	
         6	2	13	7	1	8	3	10	5	13	5	7	8	9	14	4	
         11	2	13	6	11	4	4	1	14	2	4	1	1	13	12	7	
@@ -14,6 +14,12 @@ juca = [7	6	9	3	1	15	10	12	9	13	10	11	2	11	3	6
         8	2	8	0	9	13	13	4	12	15	14	7	10	11	12	5	
         12	6	1	11	10	10	5	2	14	0	5	3	11	4	12	3	
         6	4	3	15	2	0	4	14	15	2	5	9	13	2	14	9];
-
     
-result = Daub_Composition(juca);
+ vet = [63.7002	62.4724	-4.05777	-3.91524	-2.85495	5.93455	4.81776	-6.04404	0.357373	-3.40609	-4.51106	-6.71082	4.86811	-8.78317	-1.34271	4.97099];
+ 
+ result = Daub_Composition(vet);
+
+  
+%result_decomposition = Daub_NonStandardDecomposition(matriz, 16, 16);
+    
+%result_composition = Daub_StandardComposition(result_decomposition);
