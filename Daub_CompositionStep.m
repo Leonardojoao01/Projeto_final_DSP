@@ -1,20 +1,17 @@
-function [ result ] = Daub_CompositionStep(v,n)
+function [ v ] = Daub_CompositionStep(v,n)
 %function [ vet ] = Daub_CompositionStep(v,n)
 
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
-
-    v3 = 3.0;
-    sqrt3 = sqrt(3.0);
     
     half = n / 2; 
     denom = 4.0 * sqrt(2.0);
-    result = zeros(n,1);
+    result = zeros(1,length(n));
     
-    a = double(v(half-1)); 
-    b = double(v(n-1)); 
-    c = double(v(1)); %????
-    d = double(v(half));
+    a = v(half-1); 
+    b = v(n-1); 
+    c = v(1); %????
+    d = v(half);
     
     t1 = c - a; 
     t2 = b - d; 
@@ -22,17 +19,14 @@ function [ result ] = Daub_CompositionStep(v,n)
     %result(1) = uint8((c + d + v3*(a + b) + sqrt3*(t1 + t2)) / denom);
     %result(2) = unit8((a - b + v3*(c - d) + sqrt3*(t1 - t2)) / denom);
     
-    juca1 = (c + d + v3*(a + b) + sqrt3*(t1 + t2)) / denom;
-    juca2 = (a - b + v3*(c - d) + sqrt3*(t1 - t2)) / denom;
-    
-    result(1) = uint8(juca1);
-    result(2) = uint8(juca2);
+    result(1) = (c + d + (3*(a + b)) + (sqrt(3)*(t1 + t2))) / denom;
+    result(2) = (a - b + (3*(c - d)) + (sqrt(3)*(t1 - t2))) / denom;
     
     %
     % loop aqui
     %
     j=3;
-    for i=1:half-1
+    for i=1:1:half-1
         offset1 = v(i);
         offset2 = v(half+i);
         
@@ -47,12 +41,12 @@ function [ result ] = Daub_CompositionStep(v,n)
         t2 = b - d;
         
       
-        result(j) = uint8((c + d + v3*(a + b) + sqrt3*(t1 + t2)) / denom);
+        result(j) = (c + d + (3*(a + b)) + (sqrt(3)*(t1 + t2))) / denom;
         j = j+1;
-        result(j) = uint8((a - b + v3*(c - d) + sqrt3*(t1 - t2)) / denom);
+        result(j) = (a - b + (3*(c - d)) + (sqrt(3)*(t1 - t2))) / denom;
         j = j+1;
 
-    end;
-    %vet(1:n) = result(1:n);
+    end
+    v(1:n) = result(1:n);
 end
 
