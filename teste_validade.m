@@ -1,16 +1,3 @@
-
-    
- vet = [25.585 19.6698 4.58265 -7.07951 1.68422 1.92853 -0.090304 2.97756 3.82903 -8.24504 -0.921959 -2.73369 -1.02598 -7.39924 -3.11263 1.22474];
- 
- result = Daub_Composition(vet);
-
-  
-%result_decomposition = Daub_NonStandardDecomposition(matriz, 16, 16);
-    
-%result_composition = Daub_StandardComposition(result_decomposition);
-
-
-
 matriz = [7	6	9	3	1	15	10	12	9	13	10	11	2	11	3	6	
         12	2	4	8	11	8	7	13	6	10	14	3	3	15	9	10	
         6	2	13	7	1	8	3	10	5	13	5	7	8	9	14	4	
@@ -27,3 +14,25 @@ matriz = [7	6	9	3	1	15	10	12	9	13	10	11	2	11	3	6
         8	2	8	0	9	13	13	4	12	15	14	7	10	11	12	5	
         12	6	1	11	10	10	5	2	14	0	5	3	11	4	12	3	
         6	4	3	15	2	0	4	14	15	2	5	9	13	2	14	9];
+    
+   
+ matriz_2  = [  5	6	1	2	1	3	4	7	
+                4	2	5	5	4	2	1	5	
+                3	1	7	1	6	4	9	0	
+                6	3	5	1	1	5	3	7	
+                5	6	1	2	3	6	4	5	
+                4	2	5	5	8	3	2	1	
+                3	1	7	1	7	9	5	8	
+                6	3	5	1	5	6	1	2];
+    
+% vet = [25.585 19.6698 4.58265 -7.07951 1.68422 1.92853 -0.090304 2.97756 3.82903 -8.24504 -0.921959 -2.73369 -1.02598 -7.39924 -3.11263 1.22474];
+ 
+% result = Daub_Composition(vet);
+
+  
+result_decomposition = Daub_NonStandardDecomposition(matriz_2, 8, 8);
+    
+result_composition = Daub_NonStandardComposition(result_decomposition);
+
+
+

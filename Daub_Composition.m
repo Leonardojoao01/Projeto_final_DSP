@@ -5,7 +5,7 @@ function [ vet ] = Daub_Composition( vet )
     s = 4;
     
     while s <= size(vet,2);
-        vet = Daub_CompositionStep(vet, s);
+        vet = Daub_CompositionStep(vet, s)
         s = s*2;
     end
    % resultparc = zeros(vet:1);
