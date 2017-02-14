@@ -1,5 +1,4 @@
 function [ threshold ] = getThreshold( v,n, ratio )
-%T getThreshold(MatrixMap *v, uint n, double ratio)
 
     totalEnergy = 0;
     tMin = getMinValue(v, n);
@@ -11,7 +10,7 @@ function [ threshold ] = getThreshold( v,n, ratio )
         ratio = 0.0;
     end
  
-    for i = 0:1:n
+    for i = 1:1:n
         %verificar
         totalEnergy = totalEnergy + (v(i).value.^2);
     end
@@ -22,7 +21,7 @@ function [ threshold ] = getThreshold( v,n, ratio )
         threshold = (tMax + tMin) / 2;
         totalEnergy = 0;
  
-        for i = 0:1:n
+        for i = 1:1:n
             if (v(i).value < threshold)
                 totalEnergy = totalEnergy + (v(i).value).^2;
             else
