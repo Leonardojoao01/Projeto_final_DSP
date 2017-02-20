@@ -1,9 +1,9 @@
-function [ mat ] = Daub_NonStandardDecomposition( mat, rows, cols )
-
-    h = rows;
-    w = cols;
-	temp_row = zeros(1,cols);
-	temp_col = zeros(1,rows);
+function [ mat ] = Daub_NonStandardDecomposition( mat)
+    
+    h = size(mat,1);
+    w = size(mat,2);
+	temp_row = zeros(1,size(mat,2));
+	temp_col = zeros(1,size(mat,1));
 
 	while (w >= 4 || h >= 4)
         if w >= 4

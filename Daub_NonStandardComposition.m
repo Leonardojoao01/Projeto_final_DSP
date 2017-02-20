@@ -18,8 +18,6 @@ function [ mat ] = Daub_NonStandardComposition( mat )
                 
 				vet = Daub_CompositionStep(temp_col, r);
                 
-                vet
-                
                 for j=1:1:rows
 					mat(j,i) = vet(j);
                 end
@@ -37,8 +35,6 @@ function [ mat ] = Daub_NonStandardComposition( mat )
                 %temp_row
                 
 				vet = Daub_CompositionStep(temp_row, c);
-                
-                vet
                 
                 for j=1:1:cols
 					mat(i,j) = vet(j);
