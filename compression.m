@@ -5,8 +5,8 @@ function [ matrix ] = compression( matrix, compressionRatio )
     %///////////////////////// Alocando Arrays ////////////////////////////////
  
     %matrix = [];
-    map = struct('x',{},'y',{},'value',{});
-    mergeResult = struct('x',{},'y',{},'value',{});
+    map = struct('x',{},'y',{},'value',{},'abs',{});
+    mergeResult = struct('x',{},'y',{},'value',{},'abs',{});
     
     N = size(matrix,1);
     %N = 4;
@@ -24,12 +24,13 @@ function [ matrix ] = compression( matrix, compressionRatio )
             map(((i-1)*N) + j).x = i;
             map(((i-1)*N) + j).y = j;
             map(((i-1)*N) + j).value = matrix(i,j);
+            map(((i-1)*N) + j).abs = abs(matrix(i,j));
         end
     end
     
     %///////////////////////// Ordenando Mapeamento ///////////////////////////
     
-    [~,index]=sort([map.value]);
+    [~,index]=sort([map.abs]);
     mergeResult=map(index);
     %///////////////////////// Compressão /////////////////////////////////////
 
