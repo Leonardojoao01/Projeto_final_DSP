@@ -1,4 +1,5 @@
-x = imread('ml-BW.png');
+x = imread('kubrick.png');
+x = rgb2gray(x);
 h1=subplot(2,3,1);imshow(x);title('Original (uint8)');
 
 x2 = double(x);
@@ -9,7 +10,7 @@ normalized = Daub_NonStandardDecomposition(x2);
 
 h3=subplot(2,3,3);imshow(normalized);title('Normalized');
 
-compressed = compression( normalized, 0 );
+compressed = compression( normalized, 0.001 );
 
 h4=subplot(2,3,4);imshow( uint8(compressed));title('Compressed');
 
@@ -23,3 +24,6 @@ h6=subplot(2,3,6);imshow(u8);title('nonNormalized2 (uint8)');
 
 
 linkaxes([h1,h2,h3,h4,h5,h6]);
+
+imwrite(x,'input.png');
+imwrite(u8,'output.png');
