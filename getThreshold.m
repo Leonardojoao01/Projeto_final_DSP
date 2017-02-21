@@ -25,7 +25,7 @@ function [ threshold ] = getThreshold( v,n, ratio )
             if (v(i).value < threshold)
                 totalEnergy = totalEnergy + (v(i).value).^2;
             else
-                return;
+                break;
             end
         end
  
