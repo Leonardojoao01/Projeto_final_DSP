@@ -12,7 +12,7 @@ h3=subplot(2,3,3);imshow(normalized);title('Normalized');
 
 compressed = compression( normalized, 0.001 );
 
-h4=subplot(2,3,4);imshow( uint8(compressed));title('Compressed');
+h4=subplot(2,3,4);imshow(uint8(compressed));title('Compressed');
 
 nonNormalized2 = Daub_NonStandardComposition( compressed );
 
