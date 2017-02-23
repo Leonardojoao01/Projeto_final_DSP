@@ -1,29 +1,38 @@
-x = imread('kubrick.png');
-x = rgb2gray(x);
-h1=subplot(2,3,1);imshow(x);title('Original (uint8)');
+input = imread('kubrick.png');
 
-x2 = double(x);
+h1=subplot(2,4,1);imshow(input);title('Input');
 
-h2=subplot(2,3,2);imshow(uint8(x2));title('Double');
+x = double(input);
 
-normalized = Daub_NonStandardDecomposition(x2);
+rc = Daub_NonStandardDecomposition(x(:,:,1));
+gc = Daub_NonStandardDecomposition(x(:,:,2));
+bc = Daub_NonStandardDecomposition(x(:,:,3));
 
-h3=subplot(2,3,3);imshow(normalized);title('Normalized');
+h2=subplot(2,4,2);imshow(rc);title('Red');
+h3=subplot(2,4,3);imshow(gc);title('Green');
+h4=subplot(2,4,4);imshow(bc);title('Blue');
 
-compressed = compression( normalized, 0.001 );
+ratio = 0.01;
 
-h4=subplot(2,3,4);imshow(uint8(compressed));title('Compressed');
+rc = compression(rc, ratio);
+gc = compression(gc, ratio);
+bc = compression(bc, ratio);
 
-nonNormalized2 = Daub_NonStandardComposition( compressed );
+h5=subplot(2,4,5);imshow(rc);title('Compressed Red');
+h6=subplot(2,4,6);imshow(gc);title('Compressed Green');
+h7=subplot(2,4,7);imshow(bc);title('Compressed Blue');
 
-h5=subplot(2,3,5);imshow(uint8(nonNormalized2));title('nonNormalized2 (double) / From normalized');
+rc = Daub_NonStandardComposition(rc);
+gc = Daub_NonStandardComposition(gc);
+bc = Daub_NonStandardComposition(bc);
 
-u8 = uint8(nonNormalized2);
+x = cat(3,rc,gc,bc);
 
-h6=subplot(2,3,6);imshow(u8);title('nonNormalized2 (uint8)');
+output = uint8(x);
 
+h8=subplot(2,4,8);imshow(output);title('Output');
 
-linkaxes([h1,h2,h3,h4,h5,h6]);
+linkaxes([h1,h2,h3,h4,h5,h6,h7,h8]);%,h6]);
 
-imwrite(x,'input.png');
-imwrite(u8,'output.png');
+imwrite(input,'input.png');
+imwrite(output,'output.png');
