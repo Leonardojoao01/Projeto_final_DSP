@@ -1,4 +1,4 @@
-function [ img_out ] = compression( ratio )
+function [ img_out ] = comp( ratio )
 input = imread('kubrick.png');
 
 h1=subplot(2,4,1);imshow(input);title('Input');
@@ -13,7 +13,7 @@ h2=subplot(2,4,2);imshow(rc);title('Red');
 h3=subplot(2,4,3);imshow(gc);title('Green');
 h4=subplot(2,4,4);imshow(bc);title('Blue');
 
-ratio = 0.0050;
+%ratio = 0.0050;
 
 rc = compression(rc, ratio);
 gc = compression(gc, ratio);
