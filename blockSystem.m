@@ -1,32 +1,32 @@
-ratio = 0.00500;
+%ratio = 0.00750;
+format long
+
 dif = 1;
+
+
+%ratio_min = 0.000001;
+%ratio_max = 0.001000;
+
+ratio = 0.0029;
+
+
+%ratio_min = 0.0326001;
+%ratio_max = 0.0327555;
 while (dif ~= 0)
-  
+    
+    %ratio = double((ratio_max + ratio_min)/2.0);
     img_out = comp( ratio );
 
-    [ juca1_1, juca2_1, dif ] = teste_energia();
+    [ juca1_1, juca2_1, dif] = teste_energia();
 
     ratio
-    juca1_1
-    juca2_1
     dif
     
-    if (dif > 60000)
-        ratio = ratio+0.00150;
-    elseif (dif > 6000 && dif < 60000)
-        ratio = ratio+0.00050;
-    elseif (dif > 600 && dif < 6000)
-        ratio = ratio+0.00010;
-    elseif (dif > 0 && dif < 600)
-        ratio = ratio+0.00001;
-    
-    elseif (dif < -60000)
-        ratio = ratio-0.00150;
-    elseif (dif < -6000 && dif > -60000)
-        ratio = ratio-0.00050;
-    elseif (dif < 600 && dif > 6000)
-        ratio = ratio-0.00010;
-    elseif (dif < 0 && dif > 600)
-        ratio = ratio-0.00001;
+    if(dif > 0)
+        ratio = ratio + 0.00004;
+    else
+        ratio = ratio - 0.000001;
     end
+    
+    
 end
